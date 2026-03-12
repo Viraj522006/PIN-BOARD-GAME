@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Digital Peg Board Geometry Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>Digital Peg Board Geometry Game</h1>
+      <div class="header-right">
+        <div class="score-panel">
+          <span>Score: </span><span id="scoreValue">0</span>
+        </div>
+        <div class="challenge-panel">
+          <span>Challenge: Place a </span>
+          <span id="challengeShapeName" class="challenge-shape-name"></span>
+          <button id="newChallengeBtn" class="btn small">New Challenge</button>
+        </div>
+        <button id="resetBoardBtn" class="btn primary">Reset Board</button>
+      </div>
+    </header>
+
+    <main class="main-layout">
+      <!-- Left: Shape Panel -->
+      <aside class="sidebar">
+        <h2>Shapes</h2>
+        <div class="shape-toolbar">
+          <div class="shape-tool" data-shape-type="circle" title="Circle">
+            <svg viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="28" class="shape-icon shape-circle"></circle>
+            </svg>
+            <span>Circle</span>
+          </div>
+          <div class="shape-tool" data-shape-type="square" title="Square">
+            <svg viewBox="0 0 80 80">
+              <rect x="18" y="18" width="44" height="44" class="shape-icon shape-square"></rect>
+            </svg>
+            <span>Square</span>
+          </div>
+          <div class="shape-tool" data-shape-type="rectangle" title="Rectangle">
+            <svg viewBox="0 0 80 80">
+              <rect x="12" y="24" width="56" height="32" class="shape-icon shape-rectangle"></rect>
+            </svg>
+            <span>Rectangle</span>
+          </div>
+          <div class="shape-tool" data-shape-type="triangle" title="Triangle">
+            <svg viewBox="0 0 80 80">
+              <polygon points="40,16 16,64 64,64" class="shape-icon shape-triangle"></polygon>
+            </svg>
+            <span>Triangle</span>
+          </div>
+          <div class="shape-tool" data-shape-type="star" title="Star">
+            <svg viewBox="0 0 80 80">
+              <polygon
+                points="40,10 48,30 70,30 52,44 58,64 40,52 22,64 28,44 10,30 32,30"
+                class="shape-icon shape-star"
+              ></polygon>
+            </svg>
+            <span>Star</span>
+          </div>
+        </div>
+        <div class="help-text">
+          Click and drag a shape onto the peg board.  
+          Tap a placed shape to select it, then use **Rotate** or **Delete**.
+        </div>
+      </aside>
+
+      <!-- Right: Peg Board -->
+      <section class="board-section">
+        <div class="board-toolbar">
+          <button id="rotateBtn" class="btn secondary" disabled>Rotate 90°</button>
+          <button id="deleteBtn" class="btn danger" disabled>Delete Shape</button>
+        </div>
+        <div class="board-wrapper">
+          <div class="board-scroll">
+            <!-- SVG Peg Board -->
+            <svg id="pegBoard"
+                 xmlns="http://www.w3.org/2000/svg"
+                 width="1200"
+                 height="800"
+                 viewBox="0 0 1200 800">
+            </svg>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
